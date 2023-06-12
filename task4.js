@@ -11,7 +11,7 @@ Applience.prototype.getWatts = function() {
     return power;
 };
 
-Applience.prototype.printAllProp = function() {
+Applience.prototype.printProp = function() {
     console.log(`${this.name.toUpperCase()}`);
     for (let key in this) {
         if (typeof this[key] != 'function') {
@@ -34,7 +34,7 @@ function list(entity) {
     console.log(`\n   Appliences: `);
     for (let obj in entity) {
         console.log();
-        entity[obj].printAllProp();
+        entity[obj].printProp();
     };
 };
 
