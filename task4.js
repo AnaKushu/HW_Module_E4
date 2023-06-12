@@ -22,16 +22,16 @@ Applience.prototype.printProp = function() {
 
 Applience.prototype.powerOn = function() {
     this.turn = true;
-    console.log(`\n${this.name.toUpperCase()} powered on`);
+    console.log(`\n ${this.name.toUpperCase()} powered on`);
 };
 
 Applience.prototype.powerOff = function() {
     this.turn = false;
-    console.log(`\n${this.name.toUpperCase()} powered off`);
+    console.log(`\n ${this.name.toUpperCase()} powered off`);
 };
 
 function list(entity) {
-    console.log(`\n   Appliences: `);
+    console.log(`\n Appliences: `);
     for (let obj in entity) {
         console.log();
         entity[obj].printProp();
@@ -40,7 +40,7 @@ function list(entity) {
 
 function powerConsumed(entity) {
     let power_consumed = 0;
-    console.log(`\n   Power Consumed:\n`);
+    console.log(`\n Power Consumed:\n`);
     for (let obj in entity) {
         power_consumed += entity[obj].getWatts();
     };
@@ -67,19 +67,19 @@ Lamp.prototype = new Applience();
 
 Laptop.prototype.sleepOn = function() {
     this.sleepingMode = true;
-    console.log(`\n${this.name.toUpperCase()} laptop sleeps`);
+    console.log(`\n ${this.name.toUpperCase()} laptop sleeps`);
 };
 
 Laptop.prototype.powerOn = function() {
     this.sleepingMode = false;
     this.turn = true;
-    console.log(`\n${this.name.toUpperCase()} laptop powered on`);
+    console.log(`\n ${this.name.toUpperCase()} laptop powered on`);
 };
 
 Laptop.prototype.powerOff = function() {
     this.sleepingMode = true;
     this.turn = false;
-    console.log(`\n${this.name.toUpperCase()} laptop powered off`);
+    console.log(`\n ${this.name.toUpperCase()} laptop powered off`);
 };
 
 Laptop.prototype.getWatts = function() {
@@ -94,8 +94,12 @@ const appliences = {};
 appliences.lenovo = new Laptop('Lenovo', 230, 'Linux', 'grey');
 appliences.deskLamp = new Lamp('DeskLamp', 8, 'cold light', 'black');
 
-appliences.lenovo.powerOff();
+appliences.lenovo.powerOn();
 appliences.deskLamp.powerOn();
 
 list(appliences);
 powerConsumed(appliences);
+
+appliences.lenovo.powerOff();
+appliences.deskLamp.powerOn();
+powerConsumed(appliences)
