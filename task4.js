@@ -84,7 +84,7 @@ Laptop.prototype.powerOff = function() {
 
 Laptop.prototype.getWatts = function() {
     let power = this.turn ? this.watts : 0;
-    power = this.sleepingMode ? Math.round(power * 0.2, -1) : power;
+    power = this.sleepingMode ? Math.round(power * 0.2) : power;
     console.log(`${this.name} power consumed ${power} watts`);
     return power;
 };
@@ -98,6 +98,9 @@ appliences.lenovo.powerOn();
 appliences.deskLamp.powerOn();
 
 list(appliences);
+powerConsumed(appliences);
+
+appliences.lenovo.sleepOn();
 powerConsumed(appliences);
 
 appliences.lenovo.powerOff();
